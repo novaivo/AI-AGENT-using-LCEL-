@@ -1,32 +1,67 @@
-# Byte-compiled / optimized / DLL files
+# Python cache
 __pycache__/
+*.pyc
+*.pyo
+*.pyd
 *.py[cod]
 *$py.class
 
-# Virtual environment
+# Virtual environments
+.venv/
 venv/
 env/
 ENV/
-.venv/
+env.bak/
+venv.bak/
 .python-version
 
 # Environment variables
 .env
+.envrc
+
+# VS Code settings
+.vscode/
+
+# Logs and temporary files
+*.log
+*.bak
+*.swp
+*.tmp
 
 # OS files
 .DS_Store
 Thumbs.db
 
+# Testing & coverage
+.pytest_cache/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py.cover
+.hypothesis/
 
+# Jupyter notebooks
+.ipynb_checkpoints
 
-# VS Code
-.vscode/
+# MyPy, Ruff, Pyre
+.mypy_cache/
+.ruff_cache/
+.pyre/
+.pytype/
 
-# Logs
-*.log
+# Build system
+build/
+dist/
+*.egg-info/
+.eggs/
+*.manifest
+*.spec
 
-
-# Backup files
-*.bak
-*.swp
-*.tmp
+# Others
+.pdm-python
+.dmypy.json
+.pdm-build/
