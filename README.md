@@ -13,7 +13,7 @@ This project uses LangChain’s `AgentExecutor` and `create_react_agent` with `R
 
 ## 🌟 Features
 
-✅ Uses Groq’s blazing-fast LLaMA3-8B-8192  
+✅ Uses openrouter  blazing-fast meta-llama/llama-3-8b-instruct
 ✅ Step-by-step reasoning using ReAct Agent  
 ✅ Natural language interface via CLI  
 ✅ Modular tools using `@tool` decorator  
@@ -92,7 +92,7 @@ I'm ready to answer your questions using my smart toolbox! 🧠🔧
 ## 🧰 Powered By
 
 - [LangChain](https://www.langchain.com/)
-- [Groq](https://groq.com/) LLaMA3 API
+- [openrouter](https://openrouter.ai/) LLaMA3 API
 - [OpenWeatherMap](https://openweathermap.org/)
 - [Wikipedia API](https://www.mediawiki.org/wiki/API:Main_page)
 - [Math.js API](https://api.mathjs.org/)
