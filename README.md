@@ -1,13 +1,13 @@
 # 🤖 AI Tool Agent
 
-A smart, friendly AI agent built with **LangChain**, powered by **Groq’s LLaMA3**, and equipped with real-world tools like:
+A smart, friendly AI agent built with **LangChain**, powered by **openrouter meta LLaMA3**, and equipped with real-world tools like:
 
 - 📐 Calculator
 - 🌦️ Weather Info
 - 📚 Wikipedia Lookup
 - 📂 File Reader (TXT, PDF, DOCX)
 
-This project uses LangChain’s `AgentExecutor` and `create_react_agent` with `RunnableSequence` support to decide when and how to use each tool — just like an intelligent assistant would!
+This project uses LangChain’s `AgentExecutor` and `create_tool_calling_agent` with `agent executor` support to decide when and how to use each tool — just like an intelligent assistant would!
 
 ---
 
@@ -56,7 +56,7 @@ pip install -r requirements.txt
 Create a `.env` file:
 
 ```
-GROQ_API_KEY=your_groq_api_key
+openrouter_API_KEY=your_openrouter_api_key
 ```
 
 (Optional) Edit weather API key inside `weather.py`.
