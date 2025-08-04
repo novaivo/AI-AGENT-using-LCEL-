@@ -1,9 +1,14 @@
 langchain
 langchain-community
 langchain-core
-groq
+langchain-openai
+langchainhub
 python-dotenv
 wikipedia
 requests
-PyMuPDF
+pymupdf
 python-docx
+pandas
+sqlite3  
+twilio
+langsmith
