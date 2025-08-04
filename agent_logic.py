@@ -20,5 +20,5 @@ agent = create_tool_calling_agent(
 agent_executor= AgentExecutor.from_agent_and_tools(
     agent=agent,
     tools=tools,
-    verbose= True
+    verbose= True # by enabling verbose , you can see the thought process of agent intermediate result
     )

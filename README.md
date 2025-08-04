@@ -1,23 +1,27 @@
 # 🤖 AI Tool Agent
 
-A smart, friendly AI agent built with **LangChain**, powered by **openrouter meta LLaMA3**, and equipped with real-world tools like:
+A smart, friendly AI agent built with **LangChain**, powered by **OpenRouter’s Meta LLaMA3**, and equipped with real-world tools like:
 
 - 📐 Calculator
 - 🌦️ Weather Info
 - 📚 Wikipedia Lookup
 - 📂 File Reader (TXT, PDF, DOCX)
+- 💬 WhatsApp Messaging (via Twilio)
+- 📊 CSV Statistics Analyzer
+- 🗄️ SQLite Query Executor
 
-This project uses LangChain’s `AgentExecutor` and `create_tool_calling_agent` with `agent executor` support to decide when and how to use each tool — just like an intelligent assistant would!
+It uses LangChain’s `AgentExecutor` + `create_tool_calling_agent` with ReAct reasoning — just like a thinking assistant!
 
 ---
 
 ## 🌟 Features
 
-✅ Uses openrouter  blazing-fast meta-llama/llama-3-8b-instruct
-✅ Step-by-step reasoning using ReAct Agent  
-✅ Natural language interface via CLI  
-✅ Modular tools using `@tool` decorator  
-✅ Clean, friendly explanations after tool use
+✅ Uses blazing-fast `meta-llama/llama-3-8b-instruct` via OpenRouter  
+✅ ReAct-based agent logic (step-by-step reasoning)  
+✅ Clean explanations after tool use  
+✅ CLI-based assistant  
+✅ Modular tools built with `@tool` decorator  
+✅ Smart tool selection by LLM
 
 ---
 
@@ -26,14 +30,17 @@ This project uses LangChain’s `AgentExecutor` and `create_tool_calling_agent` 
 ```
 .
 ├── main.py              # CLI entry point
-├── agent_logic.py       # Agent setup (LLM + tools + agent)
+├── agent_logic.py       # Agent setup (LLM + tools + executor)
 ├── llm_setup.py         # LLM + Prompt setup
-├── calculator.py        # Math tool (uses Math.js)
-├── weather.py           # Weather tool (OpenWeatherMap API)
-├── wikipedia.py         # Wikipedia lookup tool
+├── calculator.py        # Math tool
+├── weather.py           # Weather via OpenWeatherMap
+├── wikipedia.py         # Wikipedia search
 ├── file.py              # File reader (PDF, DOCX, TXT)
-├── .env                 # API key storage
-└── requirements.txt     # Dependencies
+├── csv_tool.py          # CSV statistics analyzer
+├── whatsapp_tool.py     # WhatsApp messaging via Twilio
+├── sqlite_tool.py       # SQL queries on .db files
+├── requirements.txt     # Dependencies
+└── .env                 # API Keys
 ```
 
 ---
@@ -43,7 +50,7 @@ This project uses LangChain’s `AgentExecutor` and `create_tool_calling_agent` 
 ### 1. 🔽 Clone the Repo
 ```bash
 git clone https://github.com/novaivo/AI-AGENT-using-LCEL-
-cd ai-tool-agent
+cd AI-AGENT-using-LCEL-
 ```
 
 ### 2. 📦 Install Dependencies
@@ -51,15 +58,27 @@ cd ai-tool-agent
 pip install -r requirements.txt
 ```
 
-### 3. 🔑 Add API Keys
 
-Create a `.env` file:
+# 🔑 OpenRouter API (for LLaMA 3 via openrouter.ai)
+openrouter_API_KEY=your_openrouter_key
 
+
+
+# 🧠 LangSmith Observability (https://smith.langchain.com/)
+LANGCHAIN_API_KEY=your_langsmith_key
+LANGCHAIN_PROJECT=SMART AI AGENT
+LANGCHAIN_TRACING_V2=true
+
+
+# Weather
+weather_api_key=your_openweather_key
+
+
+
+# Twilio WhatsApp
+TWILIO_ACCOUNT_SID=your_twilio_sid
+TWILIO_AUTH_TOKEN=your_twilio_token
 ```
-openrouter_API_KEY=your_openrouter_api_key
-```
-
-(Optional) Edit weather API key inside `weather.py`.
 
 ---
 
@@ -70,7 +89,6 @@ python main.py
 ```
 
 You’ll see:
-
 ```
 🌟 Welcome to your AI Tool Buddy! 🤖✨
 I'm ready to answer your questions using my smart toolbox! 🧠🔧
@@ -78,47 +96,76 @@ I'm ready to answer your questions using my smart toolbox! 🧠🔧
 
 ---
 
-## 💡 Example Prompts
+## 💬 Example Prompts
 
-| Prompt | What Happens |
-|--------|---------------|
-| `What is 25 * 12?` | Uses calculator tool |
-| `What's the weather in Karachi?` | Calls weather tool |
-| `Who is Alan Turing?` | Uses Wikipedia API |
-| `Read file: resume.pdf` | Reads local PDF/DOCX/TXT |
+| Prompt | Tool Used |
+|--------|-----------|
+| `What is 25 * 12?` | Calculator |
+| `What's the weather in Lahore?` | Weather |
+| `Who was Nikola Tesla?` | Wikipedia |
+| `Read file: notes.pdf` | File Tool |
+| `Send WhatsApp to +923001234567 saying hello` | WhatsApp Tool |
+| `Analyze: data.csv` | CSV Tool |
+| `Tell howw many  touch screen laptop are there  in the  the " put ur database path here"` | SQLite Tool |
+
+---
+
+## 🔌 Tool Highlights
+
+### 💬 WhatsApp Messaging (Twilio Sandbox)
+
+```
+
+> ⚠️ You and your team must join Twilio Sandbox by sending a `join <code>` message to Twilio’s test number.
+
+---
+
+### 📊 CSV Stats Tool
+Get data insights like:
+- Rows and columns
+- Missing values
+- Data types
+- Statistical summary
+
+---
+
+
 
 ---
 
 ## 🧰 Powered By
 
 - [LangChain](https://www.langchain.com/)
-- [openrouter](https://openrouter.ai/) LLaMA3 API
+- [OpenRouter LLaMA3](https://openrouter.ai/)
+- [Twilio WhatsApp Sandbox](https://www.twilio.com/)
 - [OpenWeatherMap](https://openweathermap.org/)
 - [Wikipedia API](https://www.mediawiki.org/wiki/API:Main_page)
-- [Math.js API](https://api.mathjs.org/)
-- [PyMuPDF](https://pymupdf.readthedocs.io/en/latest/) for PDF
-- [python-docx](https://python-docx.readthedocs.io/en/latest/) for Word docs
-
----
-
-## 📄 License
-
-MIT License.  
-Feel free to use, modify, and build on this project!
+- [PyMuPDF](https://pymupdf.readthedocs.io/en/latest/)
+- [python-docx](https://python-docx.readthedocs.io/en/latest/)
+- [sqlite3](https://docs.python.org/3/library/sqlite3.html)
+- [pandas](https://pandas.pydata.org/)
 
 ---
 
 ## ✨ Future Improvements
 
-- Add memory support  
-- Web UI with Streamlit or Gradio  
-- Add more tools (email, search, reminders, etc.)  
-- Logging and analytics
+- Agent memory (long-term context)  
+- Web UI with Streamlit  
+- Notifications, alarms, search engine tools  
+- GitHub Actions for auto-deploy
 
 ---
+
+## 📄 License
+
+MIT License — free to use, share, and build upon ✨
+
+---
+
 
 ## 👩‍💻 Author
 
 Made with 💖 by [marse]  
 GitHub: [github.com/novaivo](https://github.com/novaivo)
 
+---
