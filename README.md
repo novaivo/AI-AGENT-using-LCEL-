@@ -1,19 +1,19 @@
 # 🤖 AI Tool Agent
 
-A smart, friendly AI agent built with **LangChain**, powered by **Groq’s LLaMA3**, and equipped with real-world tools like:
+A smart, friendly AI agent built with **LangChain**, powered by **openrouter meta LLaMA3**, and equipped with real-world tools like:
 
 - 📐 Calculator
 - 🌦️ Weather Info
 - 📚 Wikipedia Lookup
 - 📂 File Reader (TXT, PDF, DOCX)
 
-This project uses LangChain’s `AgentExecutor` and `create_react_agent` with `RunnableSequence` support to decide when and how to use each tool — just like an intelligent assistant would!
+This project uses LangChain’s `AgentExecutor` and `create_tool_calling_agent` with `agent executor` support to decide when and how to use each tool — just like an intelligent assistant would!
 
 ---
 
 ## 🌟 Features
 
-✅ Uses Groq’s blazing-fast LLaMA3-8B-8192  
+✅ Uses openrouter  blazing-fast meta-llama/llama-3-8b-instruct
 ✅ Step-by-step reasoning using ReAct Agent  
 ✅ Natural language interface via CLI  
 ✅ Modular tools using `@tool` decorator  
@@ -56,7 +56,7 @@ pip install -r requirements.txt
 Create a `.env` file:
 
 ```
-GROQ_API_KEY=your_groq_api_key
+openrouter_API_KEY=your_openrouter_api_key
 ```
 
 (Optional) Edit weather API key inside `weather.py`.
@@ -92,7 +92,7 @@ I'm ready to answer your questions using my smart toolbox! 🧠🔧
 ## 🧰 Powered By
 
 - [LangChain](https://www.langchain.com/)
-- [Groq](https://groq.com/) LLaMA3 API
+- [openrouter](https://openrouter.ai/) LLaMA3 API
 - [OpenWeatherMap](https://openweathermap.org/)
 - [Wikipedia API](https://www.mediawiki.org/wiki/API:Main_page)
 - [Math.js API](https://api.mathjs.org/)
@@ -121,3 +121,4 @@ Feel free to use, modify, and build on this project!
 
 Made with 💖 by [marse]  
 GitHub: [github.com/novaivo](https://github.com/novaivo)
+
