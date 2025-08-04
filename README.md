@@ -118,6 +118,8 @@ I'm ready to answer your questions using my smart toolbox! 🧠🔧
 
 > ⚠️ You and your team must join Twilio Sandbox by sending a `join <code>` message to Twilio’s test number.
 
+```
+
 ---
 
 ### 📊 CSV Stats Tool
@@ -127,7 +129,7 @@ Get data insights like:
 - Data types
 - Statistical summary
 
----
+
 
 
 
